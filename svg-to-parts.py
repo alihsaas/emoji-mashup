@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import xml.etree.ElementTree as ET
 from os import listdir
 from os.path import isfile, join
