@@ -45,6 +45,11 @@ async def on_ready():
 
 @bot.command()
 async def emoji(ctx):
+
+    if ctx.guild and ctx.guild.id == 714868972549570653:
+        if ctx.channel.id != 809381683899400222:
+            return
+
     choices = [ random.choice(category_files) for category_files in files]
 
     emoji_unicode = [ get_emoji_unicode(choice) for choice in choices]
