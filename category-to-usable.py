@@ -11,7 +11,7 @@ out_dir = "assets/usable_parts"
 categories = ["face", "eyes", "background", "other"]
 
 svg_files = [f for f in listdir(main_dir) if isfile(join(main_dir, f))]
-
+svg_files.sort()
 to_be_merged = {}
 
 for file in svg_files:

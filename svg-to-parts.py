@@ -24,9 +24,9 @@ for file in svg_files:
         continue
     if "SMILEYS" not in info.category.upper():
         continue
-    if "FACE" not in name.upper():
+    if "FACE" not in name.upper() and "POO" not in name.upper():
         continue
-    print(emoji, name)
+    print(emoji, name, info)
     file_path = join(main_dir, file)
     tree = ET.parse(file_path)
     root = tree.getroot()
