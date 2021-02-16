@@ -103,7 +103,11 @@ async def emoji(ctx):
             await pick_emoji(ctx.guild.emojis).delete()
 
         await ctx.guild.create_custom_emoji(name="emoji_mashup", image=png_bytes.getvalue())
-        await ctx.send(" + ".join(emojis) + " =", file=file)
+        message = await ctx.send(" + ".join(emojis) + " =", file=file)
+        emoji = '\N{THUMBS UP SIGN}'
+        await message.add_reaction(emoji)
+        emoji = '\N{THUMBS DOWN SIGN}'
+        await message.add_reaction(emoji)
 
         last_call = time.time()
 bot.run(token)
