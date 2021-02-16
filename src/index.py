@@ -101,6 +101,7 @@ async def emoji(ctx):
         if len(ctx.guild.emojis) >= ctx.guild.emoji_limit:
             print("REACHED {0}".format(ctx.guild.emoji_limit))
             await pick_emoji(ctx.guild.emojis).delete()
+        await ctx.send(" + ".join(emojis) + " =", file=file)
 
         await ctx.guild.create_custom_emoji(name="emoji_mashup", image=png_bytes.getvalue())
         message = await ctx.send(" + ".join(emojis) + " =", file=file)
