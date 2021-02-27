@@ -17,13 +17,14 @@ to_be_merged = {}
 for file in svg_files:
     split = file.split("_")
     is_merge = "merge" in split
+    is_full = "full" in split
     split.remove("merge") if is_merge else None
+    split.remove("full") if is_full else None
     first_arg = split.pop(0)
     emoji_unicode = split.pop(0)
-    out_file_path = join(out_dir, first_arg, emoji_unicode)
+    out_file_name = emoji_unicode if not is_full else "full_" + emoji_unicode
+    out_file_path = join(out_dir, first_arg, out_file_name)
 
-    if "full" == emoji_unicode:
-        continue
     if first_arg not in categories:
         continue
     if is_merge:

@@ -1,0 +1,1248 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fi",
+				"file"
+			],
+			[
+				"cat",
+				"category"
+			],
+			[
+				"cate",
+				"category_files"
+			],
+			[
+				"catg",
+				"categories"
+			],
+			[
+				"en",
+				"endswith"
+			],
+			[
+				"cho",
+				"choices"
+			],
+			[
+				"choi",
+				"choices"
+			],
+			[
+				"path",
+				"\"stubPath\""
+			],
+			[
+				"ven",
+				"\"venvPath\""
+			],
+			[
+				"venv",
+				"\"venvPath\""
+			],
+			[
+				"UDi",
+				"UDim2"
+			],
+			[
+				"Size",
+				"CanvasSize"
+			],
+			[
+				"A",
+				"AncestryChanged"
+			],
+			[
+				"rbnx",
+				"rbxts-transform-env"
+			],
+			[
+				"from",
+				"fromScale"
+			],
+			[
+				"Bck",
+				"BackgroundTransparency"
+			],
+			[
+				"wo",
+				"worldInfo"
+			],
+			[
+				"Get",
+				"GetAsync"
+			],
+			[
+				"Set",
+				"SetAsync"
+			],
+			[
+				"wor",
+				"worldInfo"
+			],
+			[
+				"worl",
+				"worldInfo"
+			],
+			[
+				"World",
+				"WorldInfo"
+			],
+			[
+				"worldInfo",
+				"WorldInfoSerializer"
+			],
+			[
+				"Cyc",
+				"CycleEnabled"
+			],
+			[
+				"Place",
+				"PlaceVisits"
+			],
+			[
+				"rx",
+				"@rbxts/ser"
+			],
+			[
+				"Pre",
+				"PreSimulation"
+			],
+			[
+				"P",
+				"PreSimulation"
+			],
+			[
+				"exc",
+				"\"folder_exclude_patterns\""
+			],
+			[
+				"curr",
+				"currentPassword"
+			],
+			[
+				"usen",
+				"usernameId"
+			],
+			[
+				"name",
+				"nameContainer"
+			],
+			[
+				"sl",
+				"split"
+			],
+			[
+				"c",
+				"credentials"
+			],
+			[
+				"ma",
+				"madrstiapp"
+			],
+			[
+				"Tel",
+				"Teleport"
+			],
+			[
+				"r",
+				"remoteNotification"
+			],
+			[
+				"I",
+				"InvokeServer"
+			],
+			[
+				"Client",
+				"ClientFunction"
+			],
+			[
+				"notificatio",
+				"notificationStore"
+			],
+			[
+				"deser",
+				"deserializeInfo"
+			],
+			[
+				"rbx",
+				"@rbxts/t"
+			],
+			[
+				"Seria",
+				"SerializedWorldInfo"
+			],
+			[
+				"serial",
+				"serializeInfo"
+			],
+			[
+				"type",
+				"typeIs"
+			],
+			[
+				"propert",
+				"propertyName"
+			],
+			[
+				"pla",
+				"Players"
+			],
+			[
+				"Pla",
+				"Player"
+			],
+			[
+				"onPla",
+				"onPlayerRemoving"
+			],
+			[
+				"Play",
+				"players"
+			],
+			[
+				"d",
+				"dispatch"
+			],
+			[
+				"i",
+				"entries"
+			],
+			[
+				"GetPla",
+				"GetPlayers"
+			],
+			[
+				"Bor",
+				"BorderSizePixel"
+			],
+			[
+				"rb",
+				"@rbxts/roact-rodux"
+			],
+			[
+				"worldSett",
+				"worldSettingsReducer"
+			],
+			[
+				"Wor",
+				"WorldSettings"
+			],
+			[
+				"W",
+				"WorldSettings"
+			],
+			[
+				"ActionReci",
+				"ActionRecievedUpdateWorldInfo"
+			],
+			[
+				"Up",
+				"UPDATE_WORLD_INFO"
+			],
+			[
+				"Actio",
+				"ActionRecievedUpdateWorldInfo"
+			],
+			[
+				"Updat",
+				"UpdatePropertyDataType"
+			],
+			[
+				"num",
+				"numberConstrained"
+			],
+			[
+				"Jum",
+				"JumpPower"
+			],
+			[
+				"FindFirst",
+				"FindFirstChildOfClass"
+			],
+			[
+				"Chara",
+				"CharacterAdded"
+			],
+			[
+				"Jump",
+				"CharacterJumpPower"
+			],
+			[
+				"Char",
+				"CharacterWalkSpeed"
+			],
+			[
+				"Start",
+				"StarterPlayer"
+			],
+			[
+				"coll",
+				"CollisionManager"
+			],
+			[
+				"Descendant",
+				"DescendantRemoving"
+			],
+			[
+				"De",
+				"DescendantAdded"
+			],
+			[
+				"setCollisionGr",
+				"setCollisionGroupRecursive"
+			],
+			[
+				"previousColl",
+				"previousCollisionGroupName"
+			],
+			[
+				"previousCollisionG",
+				"previousCollisionGroupName"
+			],
+			[
+				"cons",
+				"constructor"
+			],
+			[
+				"Came",
+				"MinCameraZoom"
+			],
+			[
+				"Heal",
+				"HealthDistance"
+			],
+			[
+				"rod",
+				"@rbxts/roact-rodux"
+			],
+			[
+				"Star",
+				"StarterGui"
+			],
+			[
+				"GW",
+				"GWPropTypes"
+			],
+			[
+				"updat",
+				"updateWorldSettings"
+			],
+			[
+				"roa",
+				"@rbxts/roact-rodux"
+			],
+			[
+				"Sel",
+				"Selectable"
+			],
+			[
+				"Cycl",
+				"CycleEnabled"
+			],
+			[
+				"Dec",
+				"description"
+			],
+			[
+				"On",
+				"OnInputBoxUpdate"
+			],
+			[
+				"Outdo",
+				"OutdoorAmbient"
+			],
+			[
+				"Pa",
+				"Pause"
+			],
+			[
+				"Find",
+				"FindFirstChild"
+			],
+			[
+				"nu",
+				"number"
+			],
+			[
+				"S",
+				"SoundId"
+			],
+			[
+				"update",
+				"updateWorldSettingsRemote"
+			],
+			[
+				"ActionRev",
+				"ActionRecievedUpdateWorldSettings"
+			],
+			[
+				"world",
+				"WorldManager"
+			],
+			[
+				"Notif",
+				"NotificationPropTypes"
+			],
+			[
+				"Backgr",
+				"BackgroundTransparency"
+			],
+			[
+				"Backg",
+				"BackgroundTransparency"
+			],
+			[
+				"U",
+				"UDim2"
+			],
+			[
+				"text",
+				"textbutton"
+			],
+			[
+				"Gotha",
+				"GothamSemibold"
+			],
+			[
+				"Sp",
+				"SPRING_SETTINGS"
+			],
+			[
+				"create",
+				"createRef"
+			],
+			[
+				"Canv",
+				"CanvasSize"
+			],
+			[
+				"rend",
+				"renderNotifications"
+			],
+			[
+				"Goth",
+				"GothamSemibold"
+			],
+			[
+				"fr",
+				"fromScale"
+			],
+			[
+				"Scale",
+				"ScaleType"
+			],
+			[
+				"Got",
+				"GothamSemibold"
+			],
+			[
+				"UDim",
+				"UDim2"
+			],
+			[
+				"UD",
+				"UDim2"
+			],
+			[
+				"Notific",
+				"NotificationContainerPropTypes"
+			],
+			[
+				"not",
+				"notifications"
+			],
+			[
+				"ro",
+				"@rbxts/roact"
+			],
+			[
+				"Gui",
+				"GuiBase2d"
+			],
+			[
+				"Jsx",
+				"RbxJsxProps"
+			],
+			[
+				"pa",
+				"pairs"
+			],
+			[
+				"repl",
+				"replicateTo"
+			],
+			[
+				"ActionRe",
+				"ActionRecievedUpdateWorldSettings"
+			],
+			[
+				"Serve",
+				"ServerFunction"
+			],
+			[
+				"worldSe",
+				"worldSettingsReducer"
+			],
+			[
+				"Clien",
+				"ClientFunction"
+			],
+			[
+				"Ca",
+				"SetCallback"
+			],
+			[
+				"replica",
+				"replicatedAction"
+			],
+			[
+				"Server",
+				"ServerFunction"
+			],
+			[
+				"rbxt",
+				"@rbxts/net"
+			],
+			[
+				"Wo",
+				"WorldSettings"
+			],
+			[
+				"ActionReciev",
+				"ActionRecievedUpdateWorldSettings"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"lsp pyrigh",
+				"Preferences: LSP-pyright Settings"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"enab",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"pip",
+				"Package Control: Install Package"
+			],
+			[
+				"disable g",
+				"LSP: Disable Language Server Globally"
+			],
+			[
+				"dis",
+				"LSP: Disable Language Server in Project"
+			],
+			[
+				"ena",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"restart",
+				"LSP: Restart Servers"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"LSP",
+				"LSP: Disable Language Server Globally"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"dispa",
+				"Package Control: Disable Package"
+			],
+			[
+				"Build",
+				"Build With: Project: Serve"
+			],
+			[
+				"enable pac",
+				"Package Control: Enable Package"
+			],
+			[
+				"disab",
+				"LSP: Disable Language Server in Project"
+			],
+			[
+				"enabe",
+				"LSP: Enable Language Server in Project"
+			],
+			[
+				"disa",
+				"LSP: Disable Language Server in Project"
+			],
+			[
+				"ProjectManager",
+				"Project Manager: Add New Project"
+			],
+			[
+				"LSP typesc",
+				"Preferences: LSP-typescript Settings"
+			],
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"disable",
+				"LSP: Disable Language Server in Project"
+			],
+			[
+				"gloab",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"r",
+				"Package Control: Remove Package"
+			],
+			[
+				"enable g",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"resta",
+				"LSP: Restart Servers"
+			],
+			[
+				"restar",
+				"LSP: Restart Servers"
+			],
+			[
+				"the",
+				"Monokai Pro: select theme"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"lsp",
+				"LSP: Restart Servers"
+			],
+			[
+				"package li",
+				"Package Control: List Packages"
+			],
+			[
+				"view p",
+				"View Package File"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"view",
+				"View Package File"
+			],
+			[
+				"merge",
+				"Sublime Merge: Open Repository"
+			],
+			[
+				"restart lsp",
+				"SublimeLinter: Reload SublimeLinter and its Plugins"
+			],
+			[
+				"eslint",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"Emmet",
+				"Emmet: Capture Abbreviation"
+			],
+			[
+				"expan",
+				"Selection: Expand"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"displa",
+				"Package Control: Disable Package"
+			],
+			[
+				"roblox",
+				"Preferences: LSP-robloxluau Settings"
+			],
+			[
+				"sett",
+				"Preferences: LSP Settings"
+			],
+			[
+				"roblo",
+				"Preferences: LSP-robloxluau Settings"
+			],
+			[
+				"debug",
+				"Package Control: Enable Debug Mode"
+			],
+			[
+				"ro",
+				"Preferences: LSP-robloxluau Settings"
+			],
+			[
+				"robl",
+				"Preferences: LSP-robloxluau Settings"
+			],
+			[
+				"add cha",
+				"Package Control: Add Channel"
+			],
+			[
+				"disp",
+				"Package Control: Disable Package"
+			],
+			[
+				"LSP sett",
+				"Preferences: LSP Settings"
+			],
+			[
+				"generate",
+				"Plugin Development: Convert Syntax to .sublime-syntax"
+			],
+			[
+				"syntax",
+				"PackageDev: Convert to YAML and Rearrange Syntax Definition"
+			],
+			[
+				"settings",
+				"Preferences: LSP Settings"
+			],
+			[
+				"en",
+				"Package Control: Enable Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"",
+				"A File Icon: Revert to a Freshly Installed State"
+			],
+			[
+				"post",
+				"Jekyll: Open post"
+			],
+			[
+				"jekyll",
+				"Jekyll: Edit template"
+			],
+			[
+				"reload",
+				"SublimeLinter: Reload SublimeLinter and its Plugins"
+			],
+			[
+				"pyls",
+				"Preferences: LSP-typescript Settings"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"exp",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"commen",
+				"Emmet: Toggle Comment"
+			],
+			[
+				"comment",
+				"Snippet: IE Conditional Comment: IE"
+			],
+			[
+				"input - text",
+				"Snippet: input - text"
+			],
+			[
+				"input - ",
+				"Snippet: input - text"
+			],
+			[
+				"Add Rep",
+				"Package Control: Add Repository"
+			],
+			[
+				"ret",
+				"LSP: Restart Servers"
+			],
+			[
+				"insert",
+				"Snippet: Insert livereload.js script"
+			],
+			[
+				"LiveReal",
+				"Snippet: Insert livereload.js script"
+			],
+			[
+				"expand",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"retsart",
+				"LSP: Restart Servers"
+			],
+			[
+				"LSPDeno",
+				"Preferences: LSP-deno Settings"
+			],
+			[
+				"sublime",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"sublimeLinter sett",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"sublimeLinter Sett",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"SublimeLinter",
+				"SublimeLinter: Reload SublimeLinter and its Plugins"
+			],
+			[
+				"luau",
+				"Preferences: LSP-robloxluau Settings"
+			],
+			[
+				"Test Syn",
+				"Build With: Syntax Tests - All Syntaxes"
+			],
+			[
+				"test",
+				"ChannelRepositoryTools: Test Default Channel"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"color the",
+				"UI: Select Color Scheme"
+			],
+			[
+				"lsp sett",
+				"Preferences: LSP Settings"
+			],
+			[
+				"Install",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import sys; print(sys.path)",
+			"os.execute",
+			"sys.execute",
+			"sys.exec",
+			"import sys",
+			"os.exec",
+			"import os",
+			"exec(\"print(1)\")",
+			"exec(\"echo\")",
+			"exec(\"echo 1\")",
+			"exec(\"cls\")",
+			"exec(\"clear\")",
+			"exec",
+			"exit",
+			"exit()",
+			"clear()",
+			"clea()",
+			"cls",
+			"for w in sublime:\n\tprint(w)",
+			"sublime.current_view()",
+			"sublime.current_view",
+			"sublime.view",
+			"sublime.Region",
+			"sublime.Region.parms",
+			"sublime.Region.parm",
+			"sublime.Region",
+			"sublime",
+			"import sublime",
+			"view.settings().get(\"syntax\")",
+			"view",
+			"e",
+			"sublime.log_input(False); sublime.log_commands(False); sublime.log_result_regex(False)",
+			"sublime.log_input(True); sublime.log_commands(True); sublime.log_result_regex(True)",
+			"RobloxLua",
+			"e",
+			"print(os.system(\"cls\"))",
+			"print(os.system(cls))",
+			"print(os.run)",
+			"[print(x) for x in os]",
+			"import os",
+			"import system",
+			"\nimport os;\nimport sublime;\nimport subprocess;\nfrom LSP.plugin.core.protocol import Point;\nfrom LSP.plugin.core.url import uri_to_filename;\nfrom LSP.plugin.core.views import point_to_offset;\nfrom lsp_utils import NpmClientHandler;\n\n\nRESULT = subprocess.check_output(\"npm root -g\", shell=True).decode(\"utf-8\")[:-2]+\"\\\\\";\n\ncommand = [\n    os.path.join(RESULT, \"luau-language-server\", \"server\", \"bin\", \"Windows\", \"lua-language-server.exe\"),\n    \"-E\",\n    os.path.join(RESULT, \"luau-language-server\", \"server\", \"main.lua\")\n];\nprint(command);\nsettings = sublime.load_settings(\"LSP-luau.sublime-settings\");\nprint(settings.get(\"command\"));\nsettings.set(\"command\", command);\nprint(settings.get(\"command\"));\nsublime.save_settings(\"LSP-luau.sublime-settings\");",
+			"clear",
+			"\n\nprint(1); print(2)",
+			"\n\nprint(1) print(2)",
+			"import os\nimport sublime\nimport subprocess\nfrom LSP.plugin.core.protocol import Point\nfrom LSP.plugin.core.url import uri_to_filename\nfrom LSP.plugin.core.views import point_to_offset\nfrom lsp_utils import NpmClientHandler\n\n\nRESULT = subprocess.check_output(\"npm root -g\", shell=True).decode(\"utf-8\")[:-2]+\"\\\\\"\n\ncommand = [\n    os.path.join(RESULT, \"luau-language-server\", \"server\", \"bin\", \"Windows\", \"lua-language-server.exe\"),\n    \"-E\",\n    os.path.join(RESULT, \"luau-language-server\", \"server\", \"main.lua\")\n]\nprint(command)\nsettings = sublime.load_settings(\"LSP-luau.sublime-settings\")\nprint(settings.get(\"command\"))\nsettings.set(\"command\", command)\nprint(settings.get(\"command\"))\nsublime.save_settings(\"LSP-luau.sublime-settings\")",
+			"sublime.load_settings(\"LSP-luau.sublime-settings\").get(\"command\")",
+			"sublime.load_settings(\"LSP-luau.sublime-settings\").command",
+			"sublime.load_settings",
+			"import sublime"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/alihs/Projects/emoji-mashup"
+	],
+	"file_history":
+	[
+		"/C/Users/alihs/Projects/emoji-mashup/emoji-mashup.sublime-project",
+		"/C/Users/alihs/Projects/emoji-mashup/.env",
+		"/C/Users/alihs/Projects/emoji-mashup/src/index.py",
+		"/C/Users/alihs/Projects/emoji-mashup/pyrightconfig.json",
+		"/C/Users/alihs/Projects/emoji-mashup/src/pyrightconfig.json",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/BuildUI/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/BuildUI.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GWContainer.tsx",
+		"/C/Users/alihs/Projects/Blocko/package.json",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/InputFrame/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/Sound.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/server/WorldManager/index.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/SettingsContainer.tsx",
+		"/C/Users/alihs/Projects/Blocko/tsconfig.json",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/WorldInfo.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/Characters.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/Lighting.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/WorldInfoFrame/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/.env",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenu.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/WorldMenuFramesContainer.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/server/worldHandler.server.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/HandlePlayers.server.ts",
+		"/C/Users/alihs/Projects/Blocko/Blocko.sublime-project",
+		"/c/Users/alihs/Projects/Blocko/index.d.ts",
+		"/C/Users/alihs/Projects/Blocko/index.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/WorldManager/worldInfoSerializer.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/NotificationContainer.tsx",
+		"/C/Users/alihs/Projects/Blocko/.gitignore",
+		"/C/Users/alihs/Projects/Blocko/.github/workflows/build-world.yml",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/Slider/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/placementSystem/index.client.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/worldSettingsHandlers.ts",
+		"/C/Users/alihs/Projects/DenoProject/index.ts",
+		"/C/Users/alihs/Projects/DenoProject/log.txt",
+		"/C/Users/alihs/Projects/DenoProject/DenoProject.sublime-project",
+		"/C/Users/alihs/AppData/Roaming/Sublime Text/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/Users/alihs/Projects/DenoProject/main.sublime-workspace",
+		"/C/Users/alihs/Projects/DenoProject/main.sublime-project",
+		"/C/Users/alihs/Projects/DenoProject/DEFAULT.sublime-project",
+		"/C/Users/alihs/Projects/DenoProject/.sublime-project",
+		"/C/Users/alihs/Projects/Blocko/src/client/stories/main.story.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/stories/notification.story.tsx",
+		"/C/Users/alihs/Projects/Blocko/node_modules/@rbxts/profileservice/src/init.lua",
+		"/C/Users/alihs/Projects/Blocko/src/client/placementSystem/BuildHandle.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/NavigationFrame/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/CheckBox/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/ColorDisplay/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/server/placementHandler.server.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/intialState.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/misc/CloseButton.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/ColorPicker/TopFrame.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/ColorPicker/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/ColorDisplay/RGBValues.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/server/WorldManager/MockODS.ts",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/types/include/generated/None.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/networkMiddleware.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/serverNotificationHandler.client.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/utility.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/blocksSerializer/index.ts",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/types/include/roblox.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/blocksSerializer/Serializer.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/blocksSerializer/BlockIds.ts",
+		"/C/Users/alihs/Projects/Blocko/node_modules/rbxts-transformer-t/index.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/rodux/placementSettings.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/Dropdown/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/misc/GWFrame.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/server/WorldManager.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/notificationStore.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/CollisionManager.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/test.server.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/store.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/replicate.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/worldSettingsHandler.client.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/worldSettingsReducer.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/store.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/WorldInfoFrame/InfoFrame.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/WorldInfoFrame/WorldInfo.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/replicationManager.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/worldSettingsActions.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/worldSettingsHandlers.ts",
+		"/C/Users/alihs/Projects/Blocko/src/server/worldSettingsHandler.server.ts",
+		"/C/Users/alihs/Projects/Blocko/.eslintrc.json",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/SettingsFrame/Catagory.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/worldSettingsHandler.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/worldSettingsHandler.ts",
+		"/C/Users/alihs/Projects/Blocko/node_modules/@rbxts/object-utils/index.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/main.story.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/Notification.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/MainUI.tsx",
+		"/c/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/Slider/index.tsx",
+		"/c/Users/alihs/Projects/Blocko/src/client/components/GraphicalWidget/SliderAndCheckbox/index.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/ApplyPrompt.tsx",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/object-utils/index.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/client/notification.story.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/WorldMenuFrames/NavigationFrame/NavFrameButton.tsx",
+		"/C/Users/alihs/Projects/Blocko/src/client/components/misc/List.tsx",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/roact/index.d.ts",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/rodux/index.d.ts",
+		"/C/Users/alihs/Projects/Blocko/src/shared/WorldSettingsHandler.ts",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/net/out/index.d.ts",
+		"/c/Users/alihs/Projects/Blocko/node_modules/@rbxts/net/out/ClientFunction.d.ts",
+		"/C/Users/alihs/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json",
+		"/c/Users/alihs/Projects/Blocko/src/server/replicate.ts",
+		"/c/Users/alihs/Projects/Blocko/src/server/networkMiddleware.ts",
+		"/C/Users/alihs/Projects/Blocko/node_modules/@rbxts/rodux/rodux/lib/loggerMiddleware.lua",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/src/transformer.ts",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/src/utility.ts",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/example/src/shared/module.ts",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/src/index.ts",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/example/out/shared/module.lua",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/example/src/server/main.server.ts",
+		"/C/Users/alihs/Projects/io-ts-test/io-ts-transformer/transformer.ts",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/example/src/client/main.client.ts",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/package.json",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/example/tsconfig.json",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/example/package.json",
+		"/C/Users/alihs/Projects/io-ts-test/io-ts-transformer/README.md",
+		"/C/Users/alihs/Projects/rbxts-transformer-t/node_modules/get-installed-path/README.md",
+		"/C/Users/alihs/Projects/t-ts-transformer/example/node_modules/t-ts-transformer/example/tsconfig.json",
+		"/C/Users/alihs/Projects/t-ts-transformer/example/node_modules/t-ts-transformer/example/package.json",
+		"/C/Users/alihs/Projects/t-ts-transformer/package.json",
+		"/C/Users/alihs/Projects/t-ts-transformer/README.md",
+		"/C/Users/alihs/Projects/t-ts-transformer/example/package-lock.json",
+		"/C/Users/alihs/Projects/t-ts-transformer/example/tsconfig.json",
+		"/C/Users/alihs/Projects/t-ts-transformer/example/package.json"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.autopep8":
+	{
+		"height": 102.0
+	},
+	"output.diagnostics":
+	{
+		"height": 102.0
+	},
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.language servers":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Project: Serve",
+	"project": "emoji-mashup.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"src\\client\\LocalBuildHandler\\BuildingBase.lua"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 260.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Selene"
+			]
+		],
+		"width": 828.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 292.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

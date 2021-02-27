@@ -18,10 +18,9 @@ token = environ.get("TOKEN")
 
 main_dir = "assets/usable_parts"
 
-categories = ["background", "face", "eyes", "other"]
+categories = ["background", "face", "other", "eyes"]
 
 emoji_name = "emoji_mashup"
-
 
 def get_files_in_category(category):
     return [
@@ -39,7 +38,6 @@ def get_emoji_unicode(file_name):
 def get_info(unicode):
     unicode = r"\U{0}".format("{0:0>8}".format(unicode))
     emoji = eval(f"'{unicode}'")
-    print(emoji)
     name = unicodedata.name(emoji)
     info = emojis.get_emoji_by_code(emoji)
     return {
@@ -63,6 +61,13 @@ def pick_emoji(emojis):
     else:
         return pick_emoji(emojis)
 
+def get_file_from_unicode(unicode, category):
+    category_files = files[categories.index(category)]
+
+    for file in category_files:
+        if unicode in file:
+            return file
+
 
 files = [get_files_in_category(category) for category in categories]
 
@@ -77,13 +82,17 @@ async def on_ready():
 last_call = 0
 call_cooldown = 10
 
+guilds = [ 714868972549570653, 814148235098456105 ]
+channels = [ 809381683899400222 ]
 
-@slash.slash(name="emoji", description="generates random emojis and adds them to the server", guild_ids=[714868972549570653])
+manage_emojis_guilds = [ 714868972549570653 ]
+
+@slash.slash(name="emoji", description="generates random emojis and adds them to the server", guild_ids=guilds)
 async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
     if time.time() - last_call > call_cooldown:
-        if ctx.guild and ctx.guild.id == 714868972549570653:
-            if ctx.channel.id != 809381683899400222:
+        if ctx.guild and ctx.guild.id in guilds:
+            if ctx.channel.id not in channels:
                 return
 
         args = {
@@ -103,22 +112,11 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                 await ctx.send(f"Invalid emoji at {category}")
                 return
 
-            category_files = files[categories.index(category)]
-
-            is_found = False
-
-            for file in category_files:
-                print(unicode, file, unicode in file)
-                if unicode in file:
-                    is_found = True
-                    break
-
-            if is_found:
+            if get_file_from_unicode(unicode, category):
                 continue
 
             await ctx.send(f"Invalid emoji at {category}")
             return
-
 
         choices = [
             get_unicode_from_emoji(args.get(categories[index]))
@@ -126,16 +124,36 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
             for index, category_files in enumerate(files)
         ]
 
+
         emoji_unicode = [get_emoji_unicode(choice) for choice in choices]
+
+        contains_full = False
+
+        for index, unicode in enumerate(emoji_unicode):
+            file = get_file_from_unicode(unicode, categories[index])
+            if "full" in file:
+                contains_full = True
+                break
 
         emojis = [get_info(unicode)["emoji"]
                   for unicode in emoji_unicode]
+
+        if contains_full:
+                    emojis.pop(categories.index("eyes"))
 
         template_tree = ET.parse("assets/template.svg")
         root = template_tree.getroot()
 
         for index, choice in enumerate(choices):
-            file_path = join(main_dir, categories[index], choice) + ".svg"
+            category = categories[index]
+            if category == "eyes" and contains_full:
+                continue
+
+            file_name = choice
+            if contains_full and category == "face":
+                file_name = "full_" + choice
+
+            file_path = join(main_dir, categories[index], file_name) + ".svg"
             choice_tree = ET.parse(file_path)
             for child in choice_tree.getroot():
                 root.append(child)
@@ -156,35 +174,38 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
         file = discord.File(png_bytes, "emojo.png")
 
         await ctx.respond()
+
         message = await ctx.send(" + ".join(emojis) + " =", file=file)
 
-        await message.add_reaction('👍')
-        await message.add_reaction('👎')
-
-        await asyncio.sleep(5 * 60)
-        message = await message.channel.fetch_message(message.id)
-        # default values
-        positive = 0
-        negative = 0
-        for reaction in message.reactions:
-            print(reaction.emoji)
-            if reaction.emoji == '👍':
-                positive = reaction.count - 1
-            if reaction.emoji == '👎':
-                negative = reaction.count - 1
-
-        print(positive, negative)
-        if positive - negative >= 5:
-            print(len(ctx.guild.emojis), ctx.guild.emoji_limit)
-            if len(ctx.guild.emojis) >= ctx.guild.emoji_limit:
-                print("REACHED {0}".format(ctx.guild.emoji_limit))
-                await pick_emoji(ctx.guild.emojis).delete()
-
-            emoji = await ctx.guild.create_custom_emoji(
-                name="emoji_mashup",
-                image=png_bytes.getvalue()
-            )
-            await message.channel.send(f"Created emoji {emoji}")
-
         last_call = time.time()
+
+        if ctx.guild.id in manage_emojis_guilds:
+            await message.add_reaction('👍')
+            await message.add_reaction('👎')
+
+            await asyncio.sleep(5 * 60)
+            message = await message.channel.fetch_message(message.id)
+            # default values
+            positive = 0
+            negative = 0
+            for reaction in message.reactions:
+                print(reaction.emoji)
+                if reaction.emoji == '👍':
+                    positive = reaction.count - 1
+                if reaction.emoji == '👎':
+                    negative = reaction.count - 1
+
+            print(positive, negative)
+            if positive - negative >= 5:
+                print(len(ctx.guild.emojis), ctx.guild.emoji_limit)
+                if len(ctx.guild.emojis) >= ctx.guild.emoji_limit:
+                    print("REACHED {0}".format(ctx.guild.emoji_limit))
+                    await pick_emoji(ctx.guild.emojis).delete()
+
+                emoji = await ctx.guild.create_custom_emoji(
+                    name="emoji_mashup",
+                    image=png_bytes.getvalue()
+                )
+                await message.channel.send(f"Created emoji {emoji}")
+
 bot.run(token)
