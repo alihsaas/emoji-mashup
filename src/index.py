@@ -83,17 +83,28 @@ last_call = 0
 call_cooldown = 10
 
 guilds = [ 714868972549570653, 814148235098456105 ]
+
+limited_guilds = [ 714868972549570653 ]
 channels = [ 809381683899400222 ]
 
 manage_emojis_guilds = [ 714868972549570653 ]
 
-@slash.slash(name="emoji", description="generates random emojis and adds them to the server", guild_ids=guilds)
+
+@slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
 async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
     if time.time() - last_call > call_cooldown:
-        if ctx.guild and ctx.guild.id in guilds:
-            if ctx.channel.id not in channels:
+
+
+        if ctx.guild:
+            print(f"Called from {ctx.guild.id}:{ctx.guild.name}")
+            if ctx.guild.id in limited_guilds:
+                if ctx.channel.id not in channels:
+                    return
+            if ctx.guild.id not in guilds:
                 return
+        else:
+            print(f"Called by {ctx.author.id}:{ctx.author.name}")
 
         args = {
             "background": background,
@@ -179,7 +190,7 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         last_call = time.time()
 
-        if ctx.guild.id in manage_emojis_guilds:
+        if  ctx.guild and ctx.guild.id in manage_emojis_guilds:
             await message.add_reaction('👍')
             await message.add_reaction('👎')
 
