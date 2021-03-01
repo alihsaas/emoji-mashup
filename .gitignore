@@ -2,3 +2,4 @@ assets/emojis.zip
 assets/emoji-parts
 assets/twemoji-master
 .env
+*.sublime-workspace
