@@ -29,8 +29,10 @@ for file in svg_files:
         continue
     if is_merge:
         to_be_merged[emoji_unicode] = to_be_merged.get(emoji_unicode) or {
+            "is_full": is_full,
             "categories": { category: [] for category in categories }
         }
+        to_be_merged[emoji_unicode]["is_full"] = to_be_merged[emoji_unicode]["is_full"] or is_full
         to_be_merged[emoji_unicode]["categories"][first_arg].append(file)
         continue
 
@@ -52,6 +54,11 @@ for unicode in to_be_merged:
 
         template_tree = ET.parse("assets/template.svg")
         root = template_tree.getroot()
+
+        out_file_name = unicode
+
+        if to_be_merged[unicode]["is_full"] and category == "face":
+            out_file_name = "full_" + out_file_name
 
         out_file_path = join(out_dir, category, unicode)
 
