@@ -18,7 +18,7 @@ token = environ.get("TOKEN")
 
 main_dir = "assets/usable_parts"
 
-categories = ["background", "face", "other", "eyes"]
+categories = ["background", "face", "eyes", "other"]
 
 emoji_name = "emoji_mashup"
 
@@ -90,6 +90,33 @@ channels = [ 809381683899400222 ]
 manage_emojis_guilds = [ 714868972549570653 ]
 
 
+supported_decorator_options = [
+    {
+        "name": "category",
+        "description": "The category you want to see the supported emojis for",
+        "type": 3,
+        "required": True,
+        "choices": [
+            {
+                "name": "Faces",
+                "value": "face"
+            },
+            {
+                "name": "Backgrounds",
+                "value": "background"
+            },
+            {
+                "name": "Eyes",
+                "value": "eyes"
+            },
+            {
+                "name": "Accessories/Others",
+                "value": "other"
+            },
+        ]
+    }
+]
+
 @slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
 async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
@@ -126,7 +153,7 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
             if get_file_from_unicode(unicode, category):
                 continue
 
-            await ctx.send(f"Invalid emoji at {category}")
+            await ctx.send(f"Unimplmeneted emoji found at {category}")
             return
 
         choices = [
@@ -218,5 +245,22 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                     image=png_bytes.getvalue()
                 )
                 await message.channel.send(f"Created emoji {emoji}")
+
+@slash.slash(
+    name="supported",
+    description="prints the supported emojis by the bot right now.",
+    guild_ids=None,
+    options=supported_decorator_options)
+async def _supported(ctx, choice):
+        emoji_files = files[categories.index(choice)]
+
+        emoji_unicode = [get_emoji_unicode(file[0:-4]) for file in emoji_files]
+
+        emojis = [get_info(unicode)["emoji"]
+                  for unicode in emoji_unicode]
+
+        embed = discord.Embed(title=f'Supported {choice}', description=" , ".join(emojis))
+
+        await ctx.send(embed=embed)
 
 bot.run(token)
