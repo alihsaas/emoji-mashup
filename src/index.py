@@ -1,4 +1,6 @@
 import discord
+import functools
+import operator
 import asyncio
 import io
 import random
@@ -51,6 +53,9 @@ def get_unicode_from_emoji(emoji):
     if not emoji:
         return
 
+    if len(str(ord(emoji))) != 6:
+        return
+
     return "{:X}".format(ord(emoji)).lower()
 
 
@@ -67,6 +72,35 @@ def get_file_from_unicode(unicode, category):
     for file in category_files:
         if unicode in file:
             return file
+
+
+def validate_emoji_unicode(category, emoji):
+    if not emoji:
+        return (False, "")
+
+    unicode = get_unicode_from_emoji(emoji)
+    if not unicode:
+        return False, f"Invalid emoji at {category}"
+
+    if get_file_from_unicode(unicode, category):
+        return (True, "")
+
+    return False, f"Unimplmeneted emoji found at {category}"
+
+
+def flat(list_to_flat):
+    return functools.reduce(operator.iconcat, list_to_flat, [])
+
+
+def add_part(root, file, contains_full, category):
+    file_name = file
+    if contains_full and category == "face":
+        file_name = "full_" + file
+
+    file_path = join(main_dir, category, file_name) + ".svg"
+    choice_tree = ET.parse(file_path)
+    for child in choice_tree.getroot():
+        root.append(child)
 
 
 files = [get_files_in_category(category) for category in categories]
@@ -121,8 +155,6 @@ supported_decorator_options = [
 async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
     if time.time() - last_call > call_cooldown:
-
-
         if ctx.guild:
             print(f"Called from {ctx.guild.id}:{ctx.guild.name}")
             if ctx.guild.id in limited_guilds:
@@ -133,6 +165,7 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
         else:
             print(f"Called by {ctx.author.id}:{ctx.author.name}")
 
+
         args = {
             "background": background,
             "face": face,
@@ -141,60 +174,78 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
         }
 
         for category, value in args.items():
-
             if not value:
                 continue
 
-            unicode = get_unicode_from_emoji(value)
-            if not unicode:
-                await ctx.send(f"Invalid emoji at {category}")
-                return
+            for emoji in value.split(" "):
+                print(emoji)
+                success, error = validate_emoji_unicode(category, emoji)
+                if success:
+                    continue
+                else:
+                    if error == "":
+                        continue
+                    await ctx.send(error)
+                    return
 
-            if get_file_from_unicode(unicode, category):
-                continue
+        choices = []
 
-            await ctx.send(f"Unimplmeneted emoji found at {category}")
-            return
+        for index, category_files in enumerate(files):
+            input_emojis = args.get(categories[index])
+            if input_emojis:
+                input_emojis = input_emojis.split(" ")
+                print(input_emojis)
+                choices.append([get_unicode_from_emoji(emoji) for emoji in input_emojis])
+            else:
+                choices.append(random.choice(category_files)[0:-4])
 
-        choices = [
-            get_unicode_from_emoji(args.get(categories[index]))
-            or random.choice(category_files)[0:-4]
-            for index, category_files in enumerate(files)
-        ]
+        emoji_unicode = []
 
-
-        emoji_unicode = [get_emoji_unicode(choice) for choice in choices]
+        for choice in choices:
+            if type(choice) == list:
+                emoji_unicode.append([get_emoji_unicode(emoji) for emoji in choice])
+            else:
+                emoji_unicode.append(get_emoji_unicode(choice))
 
         contains_full = False
 
         for index, unicode in enumerate(emoji_unicode):
-            file = get_file_from_unicode(unicode, categories[index])
-            if "full" in file:
-                contains_full = True
-                break
+            if type(unicode) == list:
+                for emoji in unicode:
+                    file = get_file_from_unicode(emoji, categories[index])
+                    if "full" in file:
+                        contains_full = True
+                        break
+            else:
+                file = get_file_from_unicode(unicode, categories[index])
+                if "full" in file:
+                    contains_full = True
+                    break
 
-        emojis = [get_info(unicode)["emoji"]
-                  for unicode in emoji_unicode]
+
+        emojis = []
+
+        for unicode in emoji_unicode:
+            if type(unicode) == list:
+                emojis.append([get_info(emoji)["emoji"] for emoji in unicode ])
+            else:
+                emojis.append(get_info(unicode)["emoji"])
 
         if contains_full:
-                    emojis.pop(categories.index("eyes"))
+            emojis.pop(categories.index("eyes"))
 
         template_tree = ET.parse("assets/template.svg")
         root = template_tree.getroot()
 
-        for index, choice in enumerate(choices):
+        for index, choice in enumerate(emoji_unicode):
             category = categories[index]
             if category == "eyes" and contains_full:
                 continue
-
-            file_name = choice
-            if contains_full and category == "face":
-                file_name = "full_" + choice
-
-            file_path = join(main_dir, categories[index], file_name) + ".svg"
-            choice_tree = ET.parse(file_path)
-            for child in choice_tree.getroot():
-                root.append(child)
+            if type(choice) == list:
+                for emoji_choice in choice:
+                    add_part(root, emoji_choice, contains_full, category)
+            else:
+                add_part(root, choice, contains_full, category)
 
         svg_bytes = io.BytesIO()
         template_tree.write(svg_bytes)
@@ -213,7 +264,7 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         await ctx.respond()
 
-        message = await ctx.send(" + ".join(emojis) + " =", file=file)
+        message = await ctx.send(" + ".join(flat(emojis)) + " =", file=file)
 
         last_call = time.time()
 
@@ -245,6 +296,7 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                     image=png_bytes.getvalue()
                 )
                 await message.channel.send(f"Created emoji {emoji}")
+# """
 
 @slash.slash(
     name="supported",
