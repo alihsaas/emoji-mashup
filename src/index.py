@@ -24,6 +24,7 @@ categories = ["background", "face", "eyes", "other"]
 
 emoji_name = "emoji_mashup"
 
+
 def get_files_in_category(category):
     return [
         f for f in listdir(join(main_dir, category))
@@ -65,6 +66,7 @@ def pick_emoji(emojis):
         return emoji
     else:
         return pick_emoji(emojis)
+
 
 def get_file_from_unicode(unicode, category):
     category_files = files[categories.index(category)]
@@ -116,12 +118,12 @@ async def on_ready():
 last_call = 0
 call_cooldown = 10
 
-guilds = [ 714868972549570653, 814148235098456105 ]
+guilds = [714868972549570653, 814148235098456105]
 
-limited_guilds = [ 714868972549570653 ]
-channels = [ 809381683899400222 ]
+limited_guilds = [714868972549570653]
+channels = [809381683899400222]
 
-manage_emojis_guilds = [ 714868972549570653 ]
+manage_emojis_guilds = [714868972549570653]
 
 
 supported_decorator_options = [
@@ -151,6 +153,7 @@ supported_decorator_options = [
     }
 ]
 
+
 @slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
 async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
@@ -164,7 +167,6 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                 return
         else:
             print(f"Called by {ctx.author.id}:{ctx.author.name}")
-
 
         args = {
             "background": background,
@@ -195,7 +197,8 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
             if input_emojis:
                 input_emojis = input_emojis.split(" ")
                 print(input_emojis)
-                choices.append([get_unicode_from_emoji(emoji) for emoji in input_emojis])
+                choices.append([get_unicode_from_emoji(emoji)
+                                for emoji in input_emojis])
             else:
                 choices.append(random.choice(category_files)[0:-4])
 
@@ -203,7 +206,8 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         for choice in choices:
             if type(choice) == list:
-                emoji_unicode.append([get_emoji_unicode(emoji) for emoji in choice])
+                emoji_unicode.append([get_emoji_unicode(emoji)
+                                      for emoji in choice])
             else:
                 emoji_unicode.append(get_emoji_unicode(choice))
 
@@ -222,12 +226,11 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                     contains_full = True
                     break
 
-
         emojis = []
 
         for unicode in emoji_unicode:
             if type(unicode) == list:
-                emojis.append([get_info(emoji)["emoji"] for emoji in unicode ])
+                emojis.append([get_info(emoji)["emoji"] for emoji in unicode])
             else:
                 emojis.append(get_info(unicode)["emoji"])
 
@@ -268,7 +271,7 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         last_call = time.time()
 
-        if  ctx.guild and ctx.guild.id in manage_emojis_guilds:
+        if ctx.guild and ctx.guild.id in manage_emojis_guilds:
             await message.add_reaction('👍')
             await message.add_reaction('👎')
 
@@ -298,21 +301,22 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                 await message.channel.send(f"Created emoji {emoji}")
 # """
 
+
 @slash.slash(
     name="supported",
     description="prints the supported emojis by the bot right now.",
     guild_ids=None,
     options=supported_decorator_options)
 async def _supported(ctx, choice):
-        emoji_files = files[categories.index(choice)]
+    emoji_files = files[categories.index(choice)]
 
-        emoji_unicode = [get_emoji_unicode(file[0:-4]) for file in emoji_files]
+    emoji_unicode = [get_emoji_unicode(file[0:-4]) for file in emoji_files]
 
-        emojis = [get_info(unicode)["emoji"]
-                  for unicode in emoji_unicode]
+    emojis = [get_info(unicode)["emoji"]
+              for unicode in emoji_unicode]
 
-        embed = discord.Embed(title=f'Supported {choice}', description=" , ".join(emojis))
+    embed = discord.Embed(title=f'Supported {choice}', description=" , ".join(emojis))
 
-        await ctx.send(embed=embed)
+    await ctx.send(embed=embed)
 
 bot.run(token)
