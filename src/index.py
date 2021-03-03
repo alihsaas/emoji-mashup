@@ -54,6 +54,9 @@ def get_unicode_from_emoji(emoji):
     if not emoji:
         return
 
+    if len(emoji) != 1:
+        return
+
     if len(str(ord(emoji))) != 6:
         return
 
@@ -267,7 +270,8 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         await ctx.respond()
 
-        message = await ctx.send(" + ".join(flat(emojis)) + " =", file=file)
+        message_emojis = " + ".join(flat(emojis)) + " ="
+        message = await ctx.send(message_emojis, file=file)
 
         last_call = time.time()
 
@@ -299,6 +303,8 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
                     image=png_bytes.getvalue()
                 )
                 await message.channel.send(f"Created emoji {emoji}")
+            else:
+                await message.edit(content=f"Voting ended, emoji not added.\n{message_emojis}")
 # """
 
 
