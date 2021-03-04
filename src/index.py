@@ -110,7 +110,7 @@ def add_part(root, file, contains_full, category):
 
 files = [get_files_in_category(category) for category in categories]
 
-bot = commands.Bot(command_prefix='>', intents=discord.Intents.all())
+bot = commands.Bot(command_prefix='/', intents=discord.Intents.all())
 slash = SlashCommand(bot, sync_commands=True)
 
 
@@ -156,9 +156,7 @@ supported_decorator_options = [
     }
 ]
 
-
-@slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
-async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
+async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
     if time.time() - last_call > call_cooldown:
         if ctx.guild:
@@ -268,8 +266,6 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         file = discord.File(png_bytes, "emojo.png")
 
-        await ctx.respond()
-
         message_emojis = " + ".join(flat(emojis)) + " ="
         message = await ctx.send(message_emojis, file=file)
 
@@ -308,12 +304,13 @@ async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
 # """
 
 
-@slash.slash(
-    name="supported",
-    description="prints the supported emojis by the bot right now.",
-    guild_ids=None,
-    options=supported_decorator_options)
-async def _supported(ctx, choice):
+@slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
+async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
+    await create_emoji(ctx, background, face, eyes, other)
+
+
+async def create_supported(ctx, choice):
+
     emoji_files = files[categories.index(choice)]
 
     emoji_unicode = [get_emoji_unicode(file[0:-4]) for file in emoji_files]
@@ -324,5 +321,21 @@ async def _supported(ctx, choice):
     embed = discord.Embed(title=f'Supported {choice}', description=" , ".join(emojis))
 
     await ctx.send(embed=embed)
+
+@slash.slash(
+    name="supported",
+    description="prints the supported emojis by the bot right now.",
+    guild_ids=None,
+    options=supported_decorator_options)
+async def _supported(ctx, choice):
+    await create_supported(ctx, choice)
+
+@bot.command()
+async def emoji(ctx, *args):
+    await create_emoji(ctx, *args)
+
+@bot.command()
+async def supported(ctx, category):
+    await create_supported(ctx, category)
 
 bot.run(token)
