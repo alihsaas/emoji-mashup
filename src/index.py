@@ -160,7 +160,7 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
     global last_call
     if time.time() - last_call > call_cooldown:
         if ctx.guild:
-            print(f"Called from {ctx.guild.id}:{ctx.guild.name}")
+            print(f"Called from {ctx.guild.id}:{ctx.guild.name} by {ctx.author.id}:{ctx.author.name}")
             if ctx.guild.id in limited_guilds:
                 if ctx.channel.id not in channels:
                     return
@@ -181,7 +181,6 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
                 continue
 
             for emoji in value.split(" "):
-                print(emoji)
                 success, error = validate_emoji_unicode(category, emoji)
                 if success:
                     continue
@@ -197,7 +196,6 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
             input_emojis = args.get(categories[index])
             if input_emojis:
                 input_emojis = input_emojis.split(" ")
-                print(input_emojis)
                 choices.append([get_unicode_from_emoji(emoji)
                                 for emoji in input_emojis])
             else:
@@ -227,13 +225,21 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
                     contains_full = True
                     break
 
-        emojis = []
+        emojis_info = []
 
         for unicode in emoji_unicode:
             if type(unicode) == list:
-                emojis.append([get_info(emoji)["emoji"] for emoji in unicode])
+                emojis_info.append([get_info(emoji) for emoji in unicode])
             else:
-                emojis.append(get_info(unicode)["emoji"])
+                emojis_info.append(get_info(unicode))
+
+        emojis = []
+
+        for emoji_info in emojis_info:
+            if type(emoji_info) == list:
+                emojis.append([emoji["emoji"] for emoji in emoji_info])
+            else:
+                emojis.append(emoji_info["emoji"])
 
         if contains_full:
             emojis.pop(categories.index("eyes"))
