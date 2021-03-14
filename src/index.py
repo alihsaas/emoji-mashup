@@ -20,7 +20,7 @@ token = environ.get("TOKEN")
 
 main_dir = "assets/usable_parts"
 
-categories = ["background", "face", "eyes", "other"]
+categories = ["background", "face", "other", "eyes"]
 
 emoji_name = "emoji_mashup"
 
