@@ -60,7 +60,7 @@ for unicode in to_be_merged:
         if to_be_merged[unicode]["is_full"] and category == "face":
             out_file_name = "full_" + out_file_name
 
-        out_file_path = join(out_dir, category, unicode)
+        out_file_path = join(out_dir, category, out_file_name)
 
         for file in to_be_merged[unicode]["categories"][category]:
                 element_tree = ET.parse(join(main_dir, file))
