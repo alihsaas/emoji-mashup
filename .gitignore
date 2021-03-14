@@ -3,3 +3,5 @@ assets/emoji-parts
 assets/twemoji-master
 .env
 *.sublime-workspace
+
+/bot-env
