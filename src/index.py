@@ -272,7 +272,7 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
 
         file = discord.File(png_bytes, "emojo.png")
 
-        message_emojis = " + ".join(flat(emojis)) + " ="
+        message_emojis = f"{' + '.join(flat(emojis))} ="
         message = await ctx.send(message_emojis, file=file)
 
         last_call = time.time()
