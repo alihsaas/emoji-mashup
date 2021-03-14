@@ -281,16 +281,15 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
             positive = 0
             negative = 0
             for reaction in message.reactions:
-                print(reaction.emoji)
                 if reaction.emoji == '👍':
                     positive = reaction.count - 1
                 if reaction.emoji == '👎':
                     negative = reaction.count - 1
 
             print(positive, negative)
-            if positive - negative >= 5:
+            if positive > negative:
                 print(len(ctx.guild.emojis), ctx.guild.emoji_limit)
-                if len(ctx.guild.emojis) >= ctx.guild.emoji_limit:
+                while len(ctx.guild.emojis) >= ctx.guild.emoji_limit:
                     print("REACHED {0}".format(ctx.guild.emoji_limit))
                     await pick_emoji(ctx.guild.emojis).delete()
 
