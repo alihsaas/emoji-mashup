@@ -4,5 +4,5 @@ assets/twemoji-master
 .env
 *.sublime-workspace
 
-/bot-env
+/venv
 */__pycache__
