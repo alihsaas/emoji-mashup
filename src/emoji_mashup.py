@@ -35,7 +35,7 @@ def create_emoji(background=None, face=None, eyes=None, other=None, width=128, h
             continue
 
         for emoji in value.split(" "):
-            success, error = emoji_utility.validate_emoji(category, emoji)
+            success, error = emoji_utility.validate_emoji(emoji, category)
             if success:
                 continue
             else:

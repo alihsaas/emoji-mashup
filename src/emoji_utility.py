@@ -75,10 +75,10 @@ def get_file_from_emoji(emoji: str, category: Categories) -> Optional[str]:
 
     return get_file_from_unicode(unicode, category)
 
-# Checks if `emoji` has an existing part in `category`
 
+def validate_emoji(emoji: str, category: Categories) -> Tuple[bool, str]:
+    """ Checks if `emoji` has an existing part in `category` """
 
-def validate_emoji(category: Categories, emoji: str) -> Tuple[bool, str]:
     if not emoji:
         return (False, "Expected an emoji, got falsy value.")
 

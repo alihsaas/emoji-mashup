@@ -4,15 +4,12 @@ import operator
 import asyncio
 import random
 import time
-
-import cairosvg
 import emoji_mashup
 
 from discord.ext import commands
 from discord_slash import SlashCommand
 from typing import Optional
 from emoji_utility import CATEGORIES, Categories
-
 from os import environ
 from dotenv import load_dotenv
 
