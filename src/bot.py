@@ -134,16 +134,13 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
                 await message.channel.send(f"Created emoji {emoji}")
             else:
                 await message.edit(content=f"Voting ended, emoji not added.\n{message_emojis}")
+    else:
+        await ctx.send(f"Global cooldown. {'{:.2f}'.format(call_cooldown - (time.time() - last_call))} sec left.")
 
 
 @slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
 async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
     await create_emoji(ctx, background, face, eyes, other)
-
-
-@bot.command()
-async def emoji(ctx, *args):
-    await create_emoji(ctx, *args)
 
 
 async def create_supported(ctx, choice: Optional[Categories]):
@@ -167,9 +164,5 @@ async def create_supported(ctx, choice: Optional[Categories]):
 async def _supported(ctx, choice=None):
     await create_supported(ctx, choice)
 
-
-@bot.command()
-async def supported(ctx, category):
-    await create_supported(ctx, category)
 
 bot.run(TOKEN)
