@@ -1,6 +1,6 @@
 from io import BytesIO
 from cairosvg import svg2png
-from typing import Dict, List, Tuple
+from typing import Dict, List, Union
 
 import random
 import emoji_utility
@@ -21,8 +21,14 @@ def add_part(root, file, contains_full, category):
         root.append(child)
 
 
-def create_emoji(background=None, face=None, eyes=None, other=None, width=128, height=128) -> Tuple[BytesIO, List[str]]:
-    args: Dict[emoji_utility.Categories, str] = {
+def create_emoji(
+        path: Union[BytesIO, str],
+        background: str = None,
+        face: str = None,
+        eyes: str = None,
+        other: str = None,
+        width: int = 128, height: int = 128) -> List[str]:
+    args: Dict[emoji_utility.Categories, Union[str, None]] = {
         "background": background,
         "face": face,
         "eyes": eyes,
@@ -113,16 +119,14 @@ def create_emoji(background=None, face=None, eyes=None, other=None, width=128, h
     template_tree.write(svg_bytes)
     svg_bytes.seek(0)
 
-    png_bytes = BytesIO()
     svg2png(
         bytestring=svg_bytes.getvalue(),
-        write_to=png_bytes,
+        write_to=path,
         output_width=width,
         output_height=height,
     )
-    png_bytes.seek(0)
 
-    return png_bytes, emojis
+    return emojis
 
 
 def get_supported(category: emoji_utility.Categories) -> List[str]:

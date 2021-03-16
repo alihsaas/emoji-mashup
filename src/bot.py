@@ -1,3 +1,4 @@
+from io import BytesIO
 import discord
 import functools
 import operator
@@ -92,8 +93,11 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
         else:
             print(f"Called by {ctx.author.id}:{ctx.author.name}")
 
-        emoji_bytes, emojis = emoji_mashup.create_emoji(
+        emoji_bytes = BytesIO()
+        emojis = emoji_mashup.create_emoji(
+            emoji_bytes,
             background, face, eyes, other)
+        emoji_bytes.seek(0)
 
         file = discord.File(emoji_bytes, "emojo.png")
 
