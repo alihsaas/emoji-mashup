@@ -8,7 +8,7 @@ import time
 import emoji_mashup
 
 from discord.ext import commands
-from discord_slash import SlashCommand
+from discord_slash import SlashCommand, SlashContext
 from typing import Optional
 from emoji_utility import CATEGORIES, Categories
 from os import environ
@@ -80,18 +80,19 @@ supported_decorator_options = [
 ]
 
 
-async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
+async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None, other=None):
     global last_call
+
     if time.time() - last_call > call_cooldown:
         if ctx.guild:
-            print(f"Called from {ctx.guild.id}:{ctx.guild.name} by {ctx.author.id}:{ctx.author.name}")
+            print(f"Called from {ctx.guild.id}:{ctx.guild.name} by {ctx.author_id}:{ctx.author.display_name}")
             if ctx.guild.id in limited_guilds:
-                if ctx.channel.id not in channels:
+                if ctx.channel and ctx.channel not in channels:
                     return
             if ctx.guild.id not in guilds:
                 return
         else:
-            print(f"Called by {ctx.author.id}:{ctx.author.name}")
+            print(f"Called by {ctx.author_id}:{ctx.author.display_name}")
 
         emoji_bytes = BytesIO()
         emojis = emoji_mashup.create_emoji(
@@ -140,11 +141,11 @@ async def create_emoji(ctx, background=None, face=None, eyes=None, other=None):
 
 
 @slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
-async def _emoji(ctx, background=None, face=None, eyes=None, other=None):
+async def _emoji(ctx: SlashContext, background=None, face=None, eyes=None, other=None):
     await create_emoji(ctx, background, face, eyes, other)
 
 
-async def create_supported(ctx, choice: Optional[Categories]):
+async def create_supported(ctx: SlashContext, choice: Optional[Categories]):
 
     embed = discord.Embed()
 
@@ -162,7 +163,7 @@ async def create_supported(ctx, choice: Optional[Categories]):
     description="prints the supported emojis by the bot right now.",
     guild_ids=None,
     options=supported_decorator_options)
-async def _supported(ctx, choice=None):
+async def _supported(ctx: SlashContext, choice=None):
     await create_supported(ctx, choice)
 
 
