@@ -3,7 +3,7 @@ import emojis.db as emojis
 
 from utility import get_files_in_category
 
-from typing import List, Literal, Optional, Tuple, TypedDict
+from typing import List, Literal, Optional, Tuple, TypedDict, Union
 from os.path import join
 
 # Types
@@ -12,7 +12,7 @@ from os.path import join
 class EmojiInfo(TypedDict):
     emoji: str
     name: str
-    info: emojis.Emoji
+    info: Union[emojis.Emoji, None]
 
 
 Categories = Literal["background", "face", "other", "eyes"]

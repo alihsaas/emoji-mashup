@@ -1,4 +1,4 @@
-from io import BytesIO
+from io import BufferedIOBase, BytesIO
 from cairosvg import svg2png
 from typing import Dict, List, Union
 
@@ -7,7 +7,7 @@ import emoji_utility
 import xml.etree.ElementTree as ET
 
 from os.path import join
-from emoji_utility import USABLES_DIRECTORY
+from emoji_utility import CATEGORIES, USABLES_DIRECTORY, get_info
 
 
 def add_part(root, file, contains_full, category):
@@ -22,12 +22,12 @@ def add_part(root, file, contains_full, category):
 
 
 def create_emoji(
-        path: Union[BytesIO, str],
+        path: Union[BufferedIOBase, str],
         background: str = None,
         face: str = None,
         eyes: str = None,
         other: str = None,
-        width: int = 128, height: int = 128) -> List[str]:
+        size: int = 128) -> List[str]:
     args: Dict[emoji_utility.Categories, Union[str, None]] = {
         "background": background,
         "face": face,
@@ -122,8 +122,8 @@ def create_emoji(
     svg2png(
         bytestring=svg_bytes.getvalue(),
         write_to=path,
-        output_width=width,
-        output_height=height,
+        output_width=size,
+        output_height=size,
     )
 
     return emojis
@@ -139,3 +139,58 @@ def get_supported(category: emoji_utility.Categories) -> List[str]:
               for unicode in emoji_unicode]
 
     return emojis
+
+
+if __name__ == "__main__":
+    import argparse
+    import sys
+
+    from typing import Text, Optional
+
+    class EmojiAction(argparse.Action):
+        def __call__(self,
+                     parser: argparse.ArgumentParser,
+                     namespace: argparse.Namespace,
+                     values: Union[Text], option_string: Optional[Text]) -> None:
+            try:
+                info = get_info(values)
+                setattr(namespace, self.dest, info["emoji"])
+            except:
+                sys.exit(f"Invalid emoji at {self.dest}")
+
+    parser = argparse.ArgumentParser(description="Generate Random Emojis")
+
+    parser.add_argument("--size", type=int)
+
+    for category in CATEGORIES:
+        parser.add_argument(f"--{category}", type=str, action=EmojiAction)
+
+    parser.add_mutually_exclusive_group()
+    parser.add_argument("--path", type=str)
+    parser.add_argument("-", dest="stdout", action="store_true")
+
+    parsed_args = parser.parse_args()
+    path = parsed_args.path
+
+    if path and not path.endswith(".png"):
+        exit("only png format is supported")
+
+    emoji_bytes = BytesIO()
+    try:
+        emojis = create_emoji(emoji_bytes,
+                              background=parsed_args.background,
+                              face=parsed_args.face,
+                              eyes=parsed_args.eyes,
+                              other=parsed_args.other,
+                              size=parsed_args.size
+                              )
+    except Exception as e:
+        exit(e)
+    emoji_bytes.seek(0)
+
+    if path:
+        with open(path, "wb") as f:
+            f.write(emoji_bytes.getvalue())
+
+    if parsed_args.stdout:
+        sys.stdout.buffer.write(emoji_bytes.getvalue())
