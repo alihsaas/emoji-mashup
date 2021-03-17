@@ -4,5 +4,15 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"LSP": {
+			"LSP-pyright": {
+				"settings": {
+					"python.pythonPath": "./venv/Scripts/python.exe",
+					"python.venvPath": "./venv"
+				}
+			}
+		}
+	}
 }
