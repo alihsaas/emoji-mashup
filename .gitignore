@@ -1,8 +1,9 @@
 assets/emojis.zip
 assets/emoji-parts
 assets/twemoji-master
-.env
 *.sublime-workspace
 
 /venv
 **/__pycache__
+
+config.py
