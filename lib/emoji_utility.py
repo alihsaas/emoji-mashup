@@ -1,7 +1,7 @@
 import unicodedata
 import emojis.db as emojis
 
-from utility import get_files_in_category
+from lib.utility import get_files_in_category
 
 from typing import List, Literal, Optional, Tuple, TypedDict, Union
 from os.path import join

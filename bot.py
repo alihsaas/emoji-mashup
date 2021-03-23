@@ -1,22 +1,19 @@
-from io import BytesIO
+import config
 import discord
 import functools
 import operator
 import asyncio
 import random
 import time
-import emoji_mashup
+import lib.emoji_mashup as emoji_mashup
 
+
+from io import BytesIO
 from discord.ext import commands
 from discord_slash import SlashCommand, SlashContext
 from typing import Optional
-from emoji_utility import CATEGORIES, Categories
-from os import environ
-from dotenv import load_dotenv
+from lib.emoji_utility import CATEGORIES, Categories
 
-load_dotenv()
-
-TOKEN = environ.get("TOKEN")
 
 EMOJI_NAME = "emoji_mashup"
 
@@ -44,12 +41,12 @@ async def on_ready():
 last_call = 0
 call_cooldown = 10
 
-guilds = [714868972549570653, 814148235098456105]
+guilds = []
 
 limited_guilds = [714868972549570653]
 channels = [809381683899400222]
 
-manage_emojis_guilds = [714868972549570653]
+manage_emojis_guilds = []
 
 
 supported_decorator_options = [
@@ -84,13 +81,13 @@ async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None,
     global last_call
 
     if time.time() - last_call > call_cooldown:
+        guild_info = config.GUILDS_INFO.get(
+            ctx.guild_id) if ctx.guild_id else None
         if ctx.guild:
             print(f"Called from {ctx.guild.id}:{ctx.guild.name} by {ctx.author_id}:{ctx.author.display_name}")
-            if ctx.guild.id in limited_guilds:
-                if ctx.channel and ctx.channel not in channels:
+            if guild_info:
+                if ctx.channel and ctx.channel_id not in guild_info["whitelisted_channels"]:
                     return
-            if ctx.guild.id not in guilds:
-                return
         else:
             print(f"Called by {ctx.author_id}:{ctx.author.display_name}")
 
@@ -107,7 +104,7 @@ async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None,
 
         last_call = time.time()
 
-        if ctx.guild and ctx.guild.id in manage_emojis_guilds:
+        if guild_info and guild_info["manage_emojis"]:
             await message.add_reaction('👍')
             await message.add_reaction('👎')
 
@@ -140,7 +137,7 @@ async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None,
         await ctx.send(f"Global cooldown. {'{:.2f}'.format(call_cooldown - (time.time() - last_call))} sec left.")
 
 
-@slash.slash(name="emoji", description="generates random emojis", guild_ids=None)
+@slash.slash(name="emoji", description="generates random emojis", guild_ids=config.GUILDS)
 async def _emoji(ctx: SlashContext, background=None, face=None, eyes=None, other=None):
     await create_emoji(ctx, background, face, eyes, other)
 
@@ -161,10 +158,10 @@ async def create_supported(ctx: SlashContext, choice: Optional[Categories]):
 @slash.slash(
     name="supported",
     description="prints the supported emojis by the bot right now.",
-    guild_ids=None,
+    guild_ids=config.GUILDS,
     options=supported_decorator_options)
 async def _supported(ctx: SlashContext, choice=None):
     await create_supported(ctx, choice)
 
 
-bot.run(TOKEN)
+bot.run(config.TOKEN)

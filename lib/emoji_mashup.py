@@ -3,11 +3,10 @@ from cairosvg import svg2png
 from typing import Dict, List, Union
 
 import random
-import emoji_utility
+import lib.emoji_utility as emoji_utility
 import xml.etree.ElementTree as ET
 
 from os.path import join
-from emoji_utility import CATEGORIES, USABLES_DIRECTORY, get_info
 
 
 def add_part(root, file, contains_full, category):
@@ -15,7 +14,8 @@ def add_part(root, file, contains_full, category):
     if contains_full and category == "face":
         file_name = "full_" + file
 
-    file_path = join(USABLES_DIRECTORY, category, file_name) + ".svg"
+    file_path = join(emoji_utility.USABLES_DIRECTORY,
+                     category, file_name) + ".svg"
     choice_tree = ET.parse(file_path)
     for child in choice_tree.getroot():
         root.append(child)
@@ -59,9 +59,9 @@ def create_emoji(
         category = emoji_utility.CATEGORIES[index]
         input_emojis = args.get(category)
         if input_emojis:
-            input_emojis = input_emojis.split(" ")
+            input_emojis = input_emojis.strip().split(" ")
 
-            emoji_unicodes = []
+            emoji_unicodes: List[str] = []
 
             for emoji in input_emojis:
                 unicode = emoji_utility.get_unicode_from_emoji(emoji)
@@ -151,22 +151,23 @@ if __name__ == "__main__":
         def __call__(self,
                      parser: argparse.ArgumentParser,
                      namespace: argparse.Namespace,
-                     values: Union[Text], option_string: Optional[Text]) -> None:
+                     values: Text, option_string: Optional[Text]) -> None:
             try:
-                info = get_info(values)
+                info = emoji_utility.get_info(values)
                 setattr(namespace, self.dest, info["emoji"])
             except:
                 sys.exit(f"Invalid emoji at {self.dest}")
 
     parser = argparse.ArgumentParser(description="Generate Random Emojis")
 
-    parser.add_argument("--size", type=int)
+    parser.add_argument("--size", type=int,
+                        help="The height and width of the final image")
 
-    for category in CATEGORIES:
+    for category in emoji_utility.CATEGORIES:
         parser.add_argument(f"--{category}", type=str, action=EmojiAction)
 
-    parser.add_mutually_exclusive_group()
-    parser.add_argument("--path", type=str)
+    parser.add_argument(
+        "--path", type=str, help="The path to the file where the emoji will be exported")
     parser.add_argument("-", dest="stdout", action="store_true")
 
     parsed_args = parser.parse_args()

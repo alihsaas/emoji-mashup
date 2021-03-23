@@ -5,4 +5,4 @@ assets/twemoji-master
 *.sublime-workspace
 
 /venv
-*/__pycache__
+**/__pycache__
