@@ -85,7 +85,7 @@ def create_emoji(
     emojis_info = []
 
     for unicode in choices:
-        if unicode is list:
+        if type(unicode) == list:
             emojis_info.append([emoji_utility.get_info(emoji)
                                 for emoji in unicode])
         else:
@@ -94,7 +94,7 @@ def create_emoji(
     emojis = []
 
     for emoji_info in emojis_info:
-        if emoji_info is list:
+        if type(emoji_info) == list:
             emojis.append([emoji["emoji"] for emoji in emoji_info])
         else:
             emojis.append(emoji_info["emoji"])
@@ -109,7 +109,7 @@ def create_emoji(
         category = emoji_utility.CATEGORIES[index]
         if category == "eyes" and contains_full:
             continue
-        if choice is list:
+        if type(choice) == list:
             for emoji_choice in choice:
                 add_part(root, emoji_choice, contains_full, category)
         else:
