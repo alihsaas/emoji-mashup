@@ -92,19 +92,25 @@ async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None,
             print(f"Called by {ctx.author_id}:{ctx.author.display_name}")
 
         emoji_bytes = BytesIO()
-        emojis = emoji_mashup.create_emoji(
-            emoji_bytes,
-            background, face, eyes, other)
+        try:
+            emojis = emoji_mashup.create_emoji(
+                emoji_bytes,
+                background, face, eyes, other)
+        except Exception as e:
+            await ctx.send(str(e))
+            return
+
         emoji_bytes.seek(0)
 
         file = discord.File(emoji_bytes, "emojo.png")
 
         message_emojis = f"{' + '.join(flat(emojis))} ="
-        message = await ctx.send(message_emojis, file=file)
+        await ctx.send(message_emojis)
+        message = await ctx.send(file=file)
 
         last_call = time.time()
 
-        if guild_info and guild_info["manage_emojis"]:
+        if guild_info and guild_info.get("manage_emojis"):
             await message.add_reaction('👍')
             await message.add_reaction('👎')
 
