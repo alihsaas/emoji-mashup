@@ -22,7 +22,7 @@ Create a file named `config.py` in the root of your project.
 This file should follow the following template:
 ```env
 TOKEN="YOUR_TOKEN"
-GUILDS = [] # list of guild ids the bot should allow the usage of slash commands in, leave as empty list to run in all servers the bot is in
+GUILDS = [] # list of guild ids the bot should allow the usage of slash commands in, set this to None to run in all servers the bot is in
 
 GUILDS_INFO = {
 	"""

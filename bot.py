@@ -41,14 +41,6 @@ async def on_ready():
 last_call = 0
 call_cooldown = 10
 
-guilds = []
-
-limited_guilds = [714868972549570653]
-channels = [809381683899400222]
-
-manage_emojis_guilds = []
-
-
 supported_decorator_options = [
     {
         "name": "category",
@@ -105,8 +97,7 @@ async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None,
         file = discord.File(emoji_bytes, "emojo.png")
 
         message_emojis = f"{' + '.join(flat(emojis))} ="
-        await ctx.send(message_emojis)
-        message = await ctx.send(file=file)
+        message = await ctx.send(message_emojis, file=file)
 
         last_call = time.time()
 
