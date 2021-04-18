@@ -83,6 +83,8 @@ async def create_emoji(ctx: SlashContext, background=None, face=None, eyes=None,
         else:
             print(f"Called by {ctx.author_id}:{ctx.author.display_name}")
 
+        await ctx.defer()
+
         emoji_bytes = BytesIO()
         try:
             emojis = emoji_mashup.create_emoji(
